@@ -67,6 +67,11 @@ body {
     font-family: var(--primary-font);
 }
 
+/* UTILITIES */
+
+.display-none {
+    display: none !important;
+}
 
 /* HEADER  */
 

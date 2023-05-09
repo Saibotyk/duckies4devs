@@ -1,3 +1,7 @@
+// STORAGE CHECK
+
+let position = localStorage.getItem('position');
+let position2 = localStorage.getItem('position2');
 // CAROUSEL IN MOBILE
 
 const buttonNextMobile = document.querySelector(".pictures-next-js");
@@ -32,19 +36,57 @@ buttonHandlerMobile.addEventListener('click', function (event) {
         count1--;
         imgThumbs.src = imgArray[count1];
     }
-    console.log(imgThumbs.src);
 })
 
 // PICTURES IN DESKTOP
 
 const liThumbs = document.querySelectorAll('.thumbs-js > li > img');;
 liThumbs.forEach(element => {
-    element.addEventListener('mouseover', function(e) {
+    element.addEventListener('mouseover', function (e) {
         imgThumbs.src = imgArray[element.id];
     });
 });
 
 // ADD TO BUYLIST
 
-const buttonShop = document.querySelector('.add-cta-js');
+const buttonBuy = document.querySelector('.add-cta-js');
+const inputBuy = document.querySelector('.add-js > input').value;
+const valueShopList = document.querySelector('.cart-js');
 
+
+console.log(valueShopList)
+buttonBuy.addEventListener('click', function (e) {
+    valueShopList.textContent = inputBuy;
+});
+
+// ACCORDEON
+let acordeon = document.querySelector('.acrd-js');
+let acordeon2 = document.querySelector('.acrd2-js');
+const btnAcordeon = document.querySelector('.acrd-btn-js');
+const btnAcordeon2 = document.querySelector('.acrd2-btn-js');
+
+btnAcordeon.addEventListener('click', function (e) {
+    btnAcordeon.classList.toggle("closed")
+    acordeon.classList.toggle('display-none')
+    localStorage.setItem('acordeonState', acordeon.classList.contains('display-none') ? 'closed' : 'open');
+    console.log(position)
+});
+
+btnAcordeon2.addEventListener('click', function (e) {
+    btnAcordeon2.classList.toggle("closed");
+    acordeon2.classList.toggle("display-none");
+    localStorage.setItem('acordeonState2', acordeon2.classList.contains('display-none') ? 'closed' : 'open');
+});
+
+  const acordeonState = localStorage.getItem('acordeonState');
+  const acordeonState2 = localStorage.getItem('acordeonState2');
+
+  function verifyTheLocalStorage(localStorage, button, acordeon) {
+    if (localStorage === 'closed') {
+        button.classList.add('closed');
+        acordeon.classList.add('display-none');
+      }
+  }
+
+  verifyTheLocalStorage(acordeonState, btnAcordeon, acordeon);
+  verifyTheLocalStorage(acordeonState2, btnAcordeon2, acordeon2);
