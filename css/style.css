@@ -67,6 +67,34 @@ body {
     font-family: var(--primary-font);
 }
 
+/* UTILITIES */
+
+.display-none {
+    display: none !important;
+}
+
+.button-before {
+    display:none;
+}
+
+.button-after {
+    display:none;
+}
+
+@media screen and (max-width: 768px) {
+    .button-before {
+        display: block;
+        aspect-ratio: 1/1;
+        cursor: pointer;
+    }
+    .button-after{
+        display: block;
+        aspect-ratio: 1/1;
+        cursor: pointer;
+    }
+}
+
+
 
 /* HEADER  */
 
@@ -379,6 +407,16 @@ body {
 @media screen and (min-width: 768px) {
     .similar-lnk:hover {
         background-color: #dddddd;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    
+    .similar-img {
+        width:100vw;
+    }
+    .similar-price{
+        right:4rem
     }
 }
 
