@@ -102,6 +102,13 @@ btnAcordeon2.addEventListener('click', function(e) {
 // CAROUSEL IN MOBILE 2
 
 const buttonBefore = document.querySelector('.button-before');
+const buttonAfter = document.querySelector('.button-after');
+
+
+buttonAfter.addEventListener('click', function(e) {
+    const ulSimilar = document.querySelector('.similar-lst-js');
+    ulSimilar.appendChild(ulSimilar.lastElementChild);
+})
 
 buttonBefore.addEventListener('click', function(e) {
     const ulSimilar = document.querySelector('.similar-lst-js');
