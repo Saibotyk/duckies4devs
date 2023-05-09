@@ -16,7 +16,7 @@ const imgArray = [
 const imgThumbs = document.querySelector(".pictures-img-js");
 
 let count1 = 0;
-buttonNextMobile.addEventListener('click', function (event) {
+buttonNextMobile.addEventListener('click', function(e) {
     if (count1 >= 4) {
         count1 = 0
         imgThumbs.src = imgArray[count1];
@@ -28,7 +28,7 @@ buttonNextMobile.addEventListener('click', function (event) {
 })
 
 
-buttonHandlerMobile.addEventListener('click', function (event) {
+buttonHandlerMobile.addEventListener('click', function(e) {
     if (count1 <= 0) {
         count1 = 4
         imgThumbs.src = imgArray[count1];
@@ -42,7 +42,7 @@ buttonHandlerMobile.addEventListener('click', function (event) {
 
 const liThumbs = document.querySelectorAll('.thumbs-js > li > img');;
 liThumbs.forEach(element => {
-    element.addEventListener('mouseover', function (e) {
+    element.addEventListener('mouseover', function(e) {
         imgThumbs.src = imgArray[element.id];
     });
 });
@@ -55,8 +55,16 @@ const valueShopList = document.querySelector('.cart-js');
 
 
 console.log(valueShopList)
-buttonBuy.addEventListener('click', function (e) {
-    valueShopList.textContent = inputBuy;
+buttonBuy.addEventListener('click', function(e) {
+    if (inputBuy >= 99) {
+        valueShopList.textContent = "99+";
+        buttonBuy.textContent =  "Déjà au panier";
+        buttonBuy.style.backgroundColor = "var(--background-dark)" ;
+    } else {
+        valueShopList.textContent = inputBuy;
+        buttonBuy.textContent =  "Déjà au panier";
+        buttonBuy.style.backgroundColor = "var(--background-dark)" ;
+    }
 });
 
 // ACCORDEON
@@ -65,14 +73,14 @@ let acordeon2 = document.querySelector('.acrd2-js');
 const btnAcordeon = document.querySelector('.acrd-btn-js');
 const btnAcordeon2 = document.querySelector('.acrd2-btn-js');
 
-btnAcordeon.addEventListener('click', function (e) {
+btnAcordeon.addEventListener('click', function(e) {
     btnAcordeon.classList.toggle("closed")
     acordeon.classList.toggle('display-none')
     localStorage.setItem('acordeonState', acordeon.classList.contains('display-none') ? 'closed' : 'open');
     console.log(position)
 });
 
-btnAcordeon2.addEventListener('click', function (e) {
+btnAcordeon2.addEventListener('click', function(e) {
     btnAcordeon2.classList.toggle("closed");
     acordeon2.classList.toggle("display-none");
     localStorage.setItem('acordeonState2', acordeon2.classList.contains('display-none') ? 'closed' : 'open');
@@ -90,3 +98,13 @@ btnAcordeon2.addEventListener('click', function (e) {
 
   verifyTheLocalStorage(acordeonState, btnAcordeon, acordeon);
   verifyTheLocalStorage(acordeonState2, btnAcordeon2, acordeon2);
+
+// CAROUSEL IN MOBILE 2
+
+const buttonBefore = document.querySelector('.button-before');
+
+buttonBefore.addEventListener('click', function(e) {
+    const ulSimilar = document.querySelector('.similar-lst-js');
+    ulSimilar.appendChild(ulSimilar.firstElementChild);
+})
+

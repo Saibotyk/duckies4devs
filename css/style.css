@@ -73,6 +73,18 @@ body {
     display: none !important;
 }
 
+.button-before {
+    display:block;
+    align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+   
+    
+}
+
+
+
 /* HEADER  */
 
 .header {
